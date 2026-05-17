@@ -483,6 +483,26 @@ BOOL msmSysSetOutputMode(SND_OUTPUTMODE mode)
     return TRUE;
 }
 
+void msmMusStopAll(BOOL checkGrp, s32 speed)
+{
+
+}
+
+s32 msmMusGetNumPlay(BOOL baseGrp)
+{
+    return 0;
+}
+
+s32 msmSeGetNumPlay(BOOL baseGrp)
+{
+    return 0;
+}
+
+s32 msmSysDelGroupBase(s32 grpNum)
+{
+    return 0;
+}
+
 void OSSetSoundMode(u32 mode)
 {
 }
@@ -542,4 +562,14 @@ s32 HuTHPTotalFrameGet(void)
 
 void HuTHPSetVolume(s32 left, s32 right)
 {
+}
+
+f32 GXGetYScaleFactor(u16 efbHeight, u16 xfbHeight)
+{
+    return 1.0f;
+}
+
+u8 OSGetLanguage(void)
+{
+    return OS_LANGUAGE_ENGLISH;
 }

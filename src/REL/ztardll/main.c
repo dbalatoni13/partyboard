@@ -7,6 +7,7 @@
 #include "game/hsfdraw.h"
 #include "game/hsfman.h"
 #include "game/hsfmotion.h"
+#include "game/msm.h"
 #include "game/objsub.h"
 #include "game/pad.h"
 #include "game/sprite.h"
@@ -16,11 +17,12 @@
 #include "REL/ztardll.h"
 #include "game/frand.h"
 
+
 #ifndef __MWERKS__
 #include "game/hsfex.h"
 #endif
 
-extern s32 charVoiceGroupStat[8];
+SHARED_SYM extern s32 charVoiceGroupStat[8];
 
 void fn_1_1774(void);
 void fn_1_1CF0(void);

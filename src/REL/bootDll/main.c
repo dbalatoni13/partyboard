@@ -480,7 +480,6 @@ void ObjectSetup(void)
      }
  }
 
- #ifdef __MWERKS__
  void DebugCamUpdate(omObjData *obj)
  {
      Vec pos;
@@ -543,7 +542,6 @@ void ObjectSetup(void)
          }
      }
  }
-#endif
 
  void BootTitleCreate(void)
  {
@@ -798,25 +796,32 @@ void ObjectSetup(void)
      return 0;
  }
 
-#ifndef TARGET_PC
+#ifdef TARGET_PC
+#include "port/dolassets.h"
+#else
 #include "nintendoData.inc"
 #endif
 
  void *NintendoDataDecode(void)
  {
-#ifdef TARGET_PC
-     return HuDataSelHeapReadNum(TITLE_NINTENDO_ANM, MEMORY_DEFAULT_NUM, HEAP_DATA);
-#else
      u32 *src = (u32 *)nintendoData;
 
      u32 size = *src++;
      void *dst;
      s32 decode_type;
+#ifdef TARGET_PC
+     byteswap_u32(&size);
+#endif
      dst = HuMemDirectMalloc(HEAP_DATA, size);
      decode_type = *src++;
+#ifdef TARGET_PC
+     byteswap_s32(&decode_type);
+#endif
      if(dst) {
          HuDecodeData(src, dst, size, decode_type);
      }
-     return dst;
+#ifdef TARGET_PC
+     HuMemDirectFree(src);
 #endif
+     return dst;
  }

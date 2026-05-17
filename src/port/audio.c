@@ -9,7 +9,7 @@ static int HuSePlay(int seId, MSM_SEPARAM *param);
 
 extern s16 omSysExitReq;
 
-s32 charVoiceGroupStat[8];
+SHARED_SYM s32 charVoiceGroupStat[8];
 static s32 sndFXBuf[64][2];
 
 static s16 Hu3DAudVol;
@@ -583,7 +583,7 @@ void HuAudVoiceInit(s16 ovl) {
                 #if VERSION_NTSC
                 // msmSysLoadGroupBase(grpId, buf);
                 #else
-                temp_r25 = msmSysLoadGroupBase(grpId, buf);
+                // temp_r25 = msmSysLoadGroupBase(grpId, buf);
                 #endif
                 // HuMemDirectFree(buf);
             }

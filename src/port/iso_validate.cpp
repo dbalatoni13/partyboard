@@ -12,6 +12,7 @@
 #include <stdexcept>
 #include <string_view>
 #include <vector>
+#include <version.h>
 
 namespace {
 
@@ -95,12 +96,14 @@ struct KnownDisc {
 
 const auto KNOWN_DISCS = std::to_array<KnownDisc>({
     {"GMPE01", Platform::GameCube, Region::NorthAmerica, {"5eda4b612c9d04d16f95b2643ae9faa2", "0f45c2365f5812d970188b7df0b1e2ff"}},
+    {"GMPP01", Platform::GameCube, Region::Europe, {"7c8d20f1032f0025b4a681d23b421078", "ce3f0e8150d6c49093db11875e827023"}},
 });
 
 constexpr const KnownDisc* find_disc(std::string_view id) {
     for (const auto& disc : KNOWN_DISCS) {
-        if (disc.id == id)
+        if (disc.id == id && (VERSION_ENG && disc.region == Region::NorthAmerica || VERSION_PAL && disc.region == Region::Europe)) {
             return &disc;
+        }
     }
     return nullptr;
 }

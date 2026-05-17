@@ -802,6 +802,7 @@ EXPORTS
     HuCardDelete
     HuCardFormat
     HuCardFreeSpaceGet
+    HuCardInit
     HuCardMount
     HuCardOpen
     HuCardRead
@@ -978,6 +979,7 @@ EXPORTS
     OSCachedToUncached
     OSGetTick
     OSGetTime
+    OSGetLanguage
     OSPanic
     OSReport
     OSTicksToCalendarTime
@@ -1051,6 +1053,10 @@ EXPORTS
     msmSeStopAll
     msmSysGetOutputMode
     msmSysSetOutputMode
+    msmSysDelGroupBase
+    msmSeGetNumPlay
+    msmMusStopAll
+    msmMusGetNumPlay
     mtxRot
     mtxRotCat
     mtxScaleCat
@@ -1098,3 +1104,4 @@ EXPORTS
     HuWinKeyWaitNumGetPtr
     BoardWinInsertMesSetPtr
     port_main
+    GetRelIncludeData
